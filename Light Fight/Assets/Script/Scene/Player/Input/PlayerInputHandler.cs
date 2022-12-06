@@ -14,26 +14,15 @@ namespace LightFight.Player.Input
 
         public void OnMove(InputAction.CallbackContext contex)
         {
-            Debug.Log($"on move {contex.ReadValue<Vector2>()}");
-            pc.Move(contex.ReadValue<Vector2>());
+            if(contex.performed && contex.ReadValue<Vector2>().x != 0) pc.Move(contex.ReadValue<Vector2>());
+            if (contex.canceled);
         }
 
-        public void OnJump(InputAction.CallbackContext contex)
+        public void OnUpDown(InputAction.CallbackContext contex)
         {
-            if (contex.started)
-            {
-                pc.Jump(new Vector2(0, 1));
-            }
-
-            if (contex.canceled)
-            {
-                pc.Jump(new Vector2(0 , 0));
-            }
-        }
-
-        public void Down(InputAction.CallbackContext context)
-        {
-            Debug.Log($"Down {context.performed}");
+            if (contex.performed && contex.ReadValue<Vector2>().y > 0) pc.Jump();
+            if (contex.performed && contex.ReadValue<Vector2>().y < 0) pc.Down();
+            if (contex.canceled);
         }
     }
 }

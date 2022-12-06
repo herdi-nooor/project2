@@ -15,19 +15,10 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Jump",
+                    "name": "UpDown",
                     "type": "Value",
                     "id": "36ac63ff-70f7-49fe-b832-21857e4f0efd",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Down",
-                    "type": "Value",
-                    "id": "6d4681d3-173d-426c-8aea-a712edab3cbf",
-                    "expectedControlType": "",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -35,7 +26,7 @@
             ],
             "bindings": [
                 {
-                    "name": "WASD",
+                    "name": "AD",
                     "id": "e0e6045d-14ac-4ff3-8ad3-ec378f7549b0",
                     "path": "2DVector",
                     "interactions": "",
@@ -68,7 +59,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Touchscreen",
+                    "name": "SwapRightLeft",
                     "id": "3880f6f9-0049-4740-bed0-8626eaf12caa",
                     "path": "2DVector",
                     "interactions": "",
@@ -101,68 +92,68 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "W",
+                    "name": "WS",
                     "id": "b45ad667-ab9f-495d-b6aa-334a11920864",
-                    "path": "OneModifier",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "UpDown",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Modifier",
+                    "name": "Up",
                     "id": "c4335054-4114-47b0-b7d4-770bb90630ae",
                     "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
-                    "action": "Jump",
+                    "action": "UpDown",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "SwitchUp",
-                    "id": "17593842-ca6d-4aa6-bbe0-8dcee074e10f",
-                    "path": "OneModifier",
+                    "name": "Down",
+                    "id": "fae32d77-2f0c-44b6-9a6a-1509dc453176",
+                    "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "UpDown",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "SwapUpDown",
+                    "id": "17593842-ca6d-4aa6-bbe0-8dcee074e10f",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UpDown",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Modifier",
+                    "name": "Up",
                     "id": "3e43e564-9ff6-4af3-a04b-d00b5ddddfec",
                     "path": "<Touchscreen>/delta/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Jump",
+                    "groups": "Touchscreen",
+                    "action": "UpDown",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "S",
-                    "id": "6084ccea-294a-4719-867a-2f7b6aa7beda",
-                    "path": "OneModifier",
+                    "name": "Down",
+                    "id": "c3b9c94f-486d-4887-8a27-f551503dc849",
+                    "path": "<Touchscreen>/delta/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "Down",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "modifier",
-                    "id": "a597fa9a-6c51-4997-be13-bbae14bd35ea",
-                    "path": "<Keyboard>/s",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Down",
+                    "groups": "Touchscreen",
+                    "action": "UpDown",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }

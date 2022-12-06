@@ -7,23 +7,27 @@ using UnityEngine.Serialization;
 namespace LightFight.Player
 {
     public class PlayerController : MonoBehaviour
-    {
+
+    { 
+        [HideInInspector] public bool IsGrounded;
+        [HideInInspector] public bool FallTrough;
         [SerializeField] private float _moveSpeed = 3f;
         [SerializeField] private float _jumpForce = 5f;
         [SerializeField] private Vector2 _moveDirect;
         private bool _facingRight = true;
+        private bool _isJump = false;
         private Rigidbody2D rg;
 
         private void Start()
         {
             rg = GetComponent<Rigidbody2D>();
+            _moveDirect.x = 1f;
         }
 
         private void Update()
         {
             MovePlayer();
             CheckPlayerFacing();
-            Debug.Log($"move direct {_moveDirect}");
         }
 
         private void CheckPlayerFacing()
@@ -46,17 +50,30 @@ namespace LightFight.Player
 
         private void MovePlayer()
         {
-            rg.velocity = _moveDirect;
+            rg.velocity = new Vector2(_moveDirect.x * _moveSpeed * Time.deltaTime, rg.velocity.y);
         }
 
         public void Move(Vector2 movedirect)
         {
-            _moveDirect = new Vector2(_moveSpeed * movedirect.x, movedirect.y);
+            _moveDirect = movedirect;
         }
 
-        public void Jump(Vector2 movedirect)
+        public void Jump()
         {
-           _moveDirect = new Vector2(movedirect.x, movedirect.y * _jumpForce );
+            if (!_isJump && IsGrounded)
+            {
+                rg.velocity =new Vector2(rg.velocity.x, _jumpForce);
+                _isJump = true;
+            }
+            else if(_isJump && IsGrounded)
+            {
+                _isJump = false;
+            }
+        }
+
+        public void Down()
+        {
+            FallTrough = true;
         }
     }
 }
