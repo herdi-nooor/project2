@@ -24,7 +24,7 @@ namespace LightFight.Player
             _moveDirect.x = 1f;
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             MovePlayer();
             CheckPlayerFacing();
@@ -50,6 +50,7 @@ namespace LightFight.Player
 
         private void MovePlayer()
         {
+            Debug.Log($"velocity {rg.velocity}");
             rg.velocity = new Vector2(_moveDirect.x * _moveSpeed * Time.deltaTime, rg.velocity.y);
         }
 

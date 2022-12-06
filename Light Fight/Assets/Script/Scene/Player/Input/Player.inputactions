@@ -61,7 +61,7 @@
                 {
                     "name": "SwapRightLeft",
                     "id": "3880f6f9-0049-4740-bed0-8626eaf12caa",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -72,7 +72,7 @@
                 {
                     "name": "left",
                     "id": "ce53217c-7339-440b-8c7d-85e07fb2989d",
-                    "path": "<Touchscreen>/delta/left",
+                    "path": "<Touchscreen>/primaryTouch/delta/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touchscreen",
@@ -83,7 +83,7 @@
                 {
                     "name": "right",
                     "id": "fbd21a72-40a2-46ce-ac83-13106359c0b0",
-                    "path": "<Touchscreen>/delta/right",
+                    "path": "<Touchscreen>/primaryTouch/delta/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touchscreen",
@@ -94,7 +94,7 @@
                 {
                     "name": "WS",
                     "id": "b45ad667-ab9f-495d-b6aa-334a11920864",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -127,7 +127,7 @@
                 {
                     "name": "SwapUpDown",
                     "id": "17593842-ca6d-4aa6-bbe0-8dcee074e10f",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -138,7 +138,7 @@
                 {
                     "name": "Up",
                     "id": "3e43e564-9ff6-4af3-a04b-d00b5ddddfec",
-                    "path": "<Touchscreen>/delta/up",
+                    "path": "<Touchscreen>/primaryTouch/delta/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touchscreen",
@@ -149,7 +149,7 @@
                 {
                     "name": "Down",
                     "id": "c3b9c94f-486d-4887-8a27-f551503dc849",
-                    "path": "<Touchscreen>/delta/down",
+                    "path": "<Touchscreen>/primaryTouch/delta/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "Touchscreen",
