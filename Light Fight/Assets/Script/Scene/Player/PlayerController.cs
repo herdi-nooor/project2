@@ -15,7 +15,7 @@ namespace LightFight.Player
         [SerializeField] private float _jumpForce = 5f;
         [SerializeField] private Vector2 _moveDirect;
         private bool _facingRight = true;
-        private bool _isJump = false;
+        private bool _isJump;
         private Rigidbody2D rg;
 
         private void Start()
@@ -50,7 +50,6 @@ namespace LightFight.Player
 
         private void MovePlayer()
         {
-            Debug.Log($"velocity {rg.velocity}");
             rg.velocity = new Vector2(_moveDirect.x * _moveSpeed * Time.deltaTime, rg.velocity.y);
         }
 
@@ -61,12 +60,12 @@ namespace LightFight.Player
 
         public void Jump()
         {
-            if (!_isJump && IsGrounded)
+            if (_isJump == false && IsGrounded)
             {
                 rg.velocity =new Vector2(rg.velocity.x, _jumpForce);
                 _isJump = true;
             }
-            else if(_isJump && IsGrounded)
+            else if(IsGrounded)
             {
                 _isJump = false;
             }

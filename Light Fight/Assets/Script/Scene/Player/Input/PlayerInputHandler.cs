@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using Touch = UnityEngine.Touch;
-using Input = UnityEngine.Input;
+using Inputs = UnityEngine.Input;
+using TouchPhases = UnityEngine.TouchPhase;
+using Touchs = UnityEngine.Touch;
 
 namespace LightFight.Player.Input
 {
@@ -10,44 +10,15 @@ namespace LightFight.Player.Input
     {
         [SerializeField] private bool _debugging;
         private PlayerController _pc;
-        private Vector2 _currentDirect;
         private Vector2 _input;
         private String _inputD;
-
+        private Touchs _theTouch;
+        private Vector2 _touchStartPosition, _touchEndPosition;
+        
         private void Start()
         {
             _pc = GetComponent<PlayerController>();
         }
-
-        #region new input
-        
-        public void OnMove(InputAction.CallbackContext contex)
-        {
-            _input = contex.ReadValue<Vector2>();
-            if (contex.performed && contex.ReadValue<Vector2>().x != 0)
-            {
-                _currentDirect = contex.ReadValue<Vector2>();
-                _pc.Move(_currentDirect);
-                _inputD = "left right";
-            }
-            if (contex.canceled);
-        }
-
-        public void OnUpDown(InputAction.CallbackContext contex)
-        {
-            _input = contex.ReadValue<Vector2>();
-            _inputD = "up down";
-            if (contex.performed && contex.ReadValue<Vector2>().y > 0) _pc.Jump();
-            if (contex.performed && contex.ReadValue<Vector2>().y < 0) _pc.Down();
-            if (contex.canceled);
-        }
-
-        #endregion
-
-        #region old input
-
-        private Touch _theTouch;
-        private Vector2 _touchStartPosition, _touchEndPosition;
         
         private void Update()
         {
@@ -56,39 +27,54 @@ namespace LightFight.Player.Input
 
         private void Getinput()
         {
-            if (Input.touchCount > 0)
+            if (Inputs.touchCount > 0)
             {
-                _theTouch = Input.GetTouch(0);
-                if (_theTouch.phase == TouchPhase.Began)
+                _theTouch = Inputs.GetTouch(0);
+                if (_theTouch.phase == TouchPhases.Began)
                 {
-                    _touchStartPosition == _theTouch.position;
+                    _touchStartPosition = _theTouch.position;
                 }
-                else if (_theTouch.phase == TouchPhase.Move || _theTouch.phase == TouchPase.Ended)
+                else if (_theTouch.phase == TouchPhases.Moved || _theTouch.phase == TouchPhases.Ended)
                 {
                     _touchEndPosition = _theTouch.position;
                     float x = _touchStartPosition.x - _touchEndPosition.x;
                     float y = _touchStartPosition.y - _touchEndPosition.y;
-                    
+                    _input.Set(x, y);
                     if (Mathf.Abs(x) == 0 && Mathf.Abs(y) == 0)
                     {
                         _inputD = "tapped";
                     }
                     else if (Mathf.Abs(x) > Mathf.Abs(y))
                     {
-                        _inputD = x > 0 ? "right" : "left";
+                        _inputD = x > 0 ? "left" : "right";
+                        if (x > 0)
+                        {
+                            _pc.Move(new Vector2(-1, 0));
+                        }
+                        else
+                        {
+                            _pc.Move(new Vector2(1, 0));
+                        }
                     }
 
                     else
                     {
-                        _inputD = y > 0 ? "up" : "down";
+                        _inputD = y > 0 ? "down" : "up";
+                        if (y > 0 && y < 20)
+                        {
+                            _pc.Down();
+                        }
+                        else if (y < 0 && y > -20)
+                        {
+                            _pc.Jump();
+                            Debug.Log("jump");
+                        }
                     }
                 }
             }
                         
         }
 
-        #endregion
-        
         #region DebugGUI
         
         void OnGUI()
@@ -97,9 +83,8 @@ namespace LightFight.Player.Input
             if (!_debugging) { return; }
             GUI.Label(new Rect(10, 10, 100, 200), "Debugging Info:");
             GUI.contentColor = Color.white;
-            GUI.Label(new Rect(10, 25, 500, 200), $"curentdirection : {_currentDirect}");
-            GUI.Label(new Rect(10, 40, 500, 200), $"input: {_input}");
-            GUI.Label(new Rect(10, 40, 500, 200), $" direct input: {_inputD}");
+            GUI.Label(new Rect(10, 40, 500, 200), $"input: {_inputD}");
+            GUI.Label(new Rect(10, 55, 500, 200), $" direct input x: {_input.x}\n direct input y : {_input.y}");
         }
         
         #endregion
