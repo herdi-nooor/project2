@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
+using LightFight.Global;
 
 namespace LightFight.Player
 {
@@ -28,6 +29,7 @@ namespace LightFight.Player
         {
             MovePlayer();
             CheckPlayerFacing();
+            DebugOnPLay.instance.Fall = FallTrough;
         }
 
         private void CheckPlayerFacing()
@@ -42,6 +44,13 @@ namespace LightFight.Player
             }
         }
 
+        private void OnCollisionStay2D(Collision2D other) {
+            if (other.collider.CompareTag("Wall"))
+            {
+                Flip();
+            }
+        }
+        
         private void Flip()
         {
             _facingRight = !_facingRight;
@@ -50,7 +59,7 @@ namespace LightFight.Player
 
         private void MovePlayer()
         {
-            rg.velocity = new Vector2(_moveDirect.x * _moveSpeed * Time.deltaTime, rg.velocity.y);
+            rg.velocity = new Vector2(_moveDirect.x * _moveSpeed , rg.velocity.y);
         }
 
         public void Move(Vector2 movedirect)
@@ -75,5 +84,6 @@ namespace LightFight.Player
         {
             FallTrough = true;
         }
+
     }
 }

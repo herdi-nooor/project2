@@ -1,7 +1,22 @@
 fileFormatVersion: 2
-guid: 0d2806569ccbee73ca45b77d4bc85e70
+guid: 9215703f0f4781713b87631618d98816
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 3983752313433910205
+    second: TileLvl1_0
+  - first:
+      213: -7622467827830167393
+    second: TileLvl1_1
+  - first:
+      213: -851376824257341295
+    second: TileLvl1_2
+  - first:
+      213: -8211804619739994083
+    second: TileLvl1_3
+  - first:
+      213: 8107803897054645606
+    second: TilePlatformLvl1_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -41,7 +56,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -102,7 +117,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: TileLvl1_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 192
+        width: 21
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d186c73d43fc90e80800000000000000
+      internalID: -8211804619739994083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
