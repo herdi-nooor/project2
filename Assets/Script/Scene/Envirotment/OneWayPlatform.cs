@@ -46,7 +46,7 @@ namespace LightFight.Envirotment
                 if (oncoll)
                 {
                     oncoll = false;
-                    Invoke("Resett", 0.2f);
+                    Invoke("Resett", 0.1f);
                 }
             }
         }
