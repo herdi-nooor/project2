@@ -12,17 +12,24 @@ namespace LightFight.Player
     { 
         [HideInInspector] public bool IsGrounded;
         [HideInInspector] public bool FallTrough;
-        [SerializeField] private float _moveSpeed = 3f;
-        [SerializeField] private float _jumpForce = 5f;
-        [SerializeField] private Vector2 _moveDirect;
+        public DataCharacter DataCharater;
+        private float _moveSpeed = 3f;
+        private float _jumpForce = 5f;
+        private Vector2 _moveDirect;
         private bool _facingRight = true;
         private bool _isJump;
         private Rigidbody2D rg;
+
+        private void Awake() {
+            _moveSpeed = DataCharater.Speed;
+            _jumpForce = DataCharater.JumpForce;
+        }
 
         private void Start()
         {
             rg = GetComponent<Rigidbody2D>();
             _moveDirect.x = 1f;
+
         }
 
         private void FixedUpdate()

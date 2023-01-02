@@ -44,6 +44,17 @@ namespace LightFight.Enemy
             transform.Rotate(0.0f, 180.0f, 0.0f);
         }
 
+        public void OnEdge()
+        {
+            float frustrumPositionUp = Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).y;
+            float frustrumPositiondown = Camera.main.ViewportToWorldPoint(new Vector2(0 , 0)).y;
+
+            if ((transform.position.y > frustrumPositionUp) || (transform.position.y < frustrumPositiondown))
+            {
+                //DestroyBullet(gameObject);
+            }
+        }
+
     }
     
 }

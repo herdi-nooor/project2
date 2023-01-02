@@ -262,7 +262,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4091099810568429481}
-  m_LocalRotation: {x: -0, y: -0, z: -0.71392894, w: 0.70021814}
+  m_LocalRotation: {x: -0, y: -0, z: -0.70516694, w: 0.7090413}
   m_LocalPosition: {x: 0.181, y: 0.078, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -295,10 +295,10 @@ MonoBehaviour:
   m_ShadowIntensity: 1
   m_ShadowVolumeIntensity: 0.38
   m_Mesh: {fileID: 0}
-  m_PointLightInnerAngle: 75.54
-  m_PointLightOuterAngle: 114.42
+  m_PointLightInnerAngle: 139.57
+  m_PointLightOuterAngle: 169.49
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 0.61711246
+  m_PointLightOuterRadius: 0.2917689
   m_PointLightDistance: 0.84
   m_PointLightQuality: 0
   m_ShapeLightParametricSides: 5

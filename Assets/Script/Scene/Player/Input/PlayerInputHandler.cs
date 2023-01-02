@@ -58,11 +58,11 @@ namespace LightFight.Player.Input
                     else
                     {
                         DebugOnPLay.instance._inputD = y > 0 ? "down" : "jump";
-                        if (y > 0 && y < 100)
+                        if (y > 0 && y < 80)
                         {
                             _pc.Down();
                         }
-                        else if (y < 0 && y > -100)
+                        else if (y < 0 && y > -80)
                         {
                             _pc.Jump();
                         }
