@@ -9,6 +9,10 @@ namespace LightFight.Enemy
         [SerializeField] private float _moveSpeed;
         [SerializeField] private Vector2 _moveDirect;
         private Rigidbody2D  _rg;
+        public Camera m_camera;
+
+        private float spTmp;
+        private bool onFlip;
 
         [SerializeField] private bool _facingRight = false;
 
@@ -19,18 +23,20 @@ namespace LightFight.Enemy
 
         void FixedUpdate()
         {
-                _rg.velocity = new Vector2(_moveSpeed * _moveDirect.x * Time.deltaTime, _rg.velocity.y);
+            _rg.velocity = new Vector2(_moveSpeed * _moveDirect.x * Time.deltaTime, _rg.velocity.y);
         }
 
-        private void OnCollisionEnter2D(Collision2D other) {
-            if (other.collider.CompareTag("Wall"))
-            {
-                Flip();
-            }
+        private void Update() 
+        {
+            OnEdge();
         }
     
-         private void Flip()
+        private IEnumerator Flip()
         {
+            onFlip = true;
+            spTmp = _moveSpeed;
+            _moveSpeed = 0.0f;
+            
             if (_facingRight == false && _moveDirect.x > 0)
             {
                 _moveDirect.x = -1;
@@ -41,17 +47,24 @@ namespace LightFight.Enemy
                 _moveDirect.x = 1;
                 _facingRight = false;
             }
+
+            yield return new WaitForSeconds(2); 
             transform.Rotate(0.0f, 180.0f, 0.0f);
+
+            yield return new WaitForSeconds(2);
+            _moveSpeed = spTmp;
+            onFlip = false;
         }
 
         public void OnEdge()
         {
-            float frustrumPositionUp = Camera.main.ViewportToWorldPoint(new Vector2(0, 1)).y;
-            float frustrumPositiondown = Camera.main.ViewportToWorldPoint(new Vector2(0 , 0)).y;
 
-            if ((transform.position.y > frustrumPositionUp) || (transform.position.y < frustrumPositiondown))
+            float frustrumPositionR = Camera.main.ViewportToWorldPoint(new Vector2(1, 0)).x - 0.4f;
+            float frustrumPositionL = Camera.main.ViewportToWorldPoint(new Vector2(0 , 0)).x + 0.4f;
+
+            if ((transform.position.x > frustrumPositionR) || (transform.position.x < frustrumPositionL))
             {
-                //DestroyBullet(gameObject);
+                if (onFlip == false) StartCoroutine(Flip());
             }
         }
 
