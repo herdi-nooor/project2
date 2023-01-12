@@ -56,6 +56,13 @@ namespace LightFight.Player
             {
                 Flip();
             }
+
+        }
+
+        private void OnTriggerEnter2D(Collider2D other) {
+            Debug.Log($"colide with {other}");
+            if (other.transform.name == "PlayerFlashlight") Debug.Log($"colide it with {other.transform.name}");
+            
         }
         
         private void Flip()
