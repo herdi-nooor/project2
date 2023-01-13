@@ -1,23 +1,17 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using LightFight.Global;
+using LightFight.Message;
 
 namespace LightFight.Player
 {
     public class PlayerController : MonoBehaviour
 
     { 
-        [HideInInspector] public bool IsGrounded;
-        [HideInInspector] public bool FallTrough;
+        [HideInInspector] public bool IsGrounded, FallTrough;
         public DataCharacter DataCharater;
-        private float _moveSpeed = 3f;
-        private float _jumpForce = 5f;
+        private float _moveSpeed = 3f, _jumpForce = 5f;
         private Vector2 _moveDirect;
-        private bool _facingRight = true;
-        private bool _isJump;
+        private bool _facingRight = true, _isJump;
         private Rigidbody2D rg;
 
         private void Awake() {
@@ -60,9 +54,7 @@ namespace LightFight.Player
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            Debug.Log($"colide with {other}");
-            if (other.transform.name == "PlayerFlashlight") Debug.Log($"colide it with {other.transform.name}");
-            
+            EventManager.TriggerEvent("HitEnemy", new HitEnemyMessage(2));
         }
         
         private void Flip()

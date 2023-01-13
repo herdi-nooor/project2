@@ -175,7 +175,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9334d7d1c61c0b0dabdd2f765b25b8ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 20
-  _moveDirect: {x: 1, y: 0}
   m_camera: {fileID: 0}
-  _facingRight: 0
+  DataEnemy: {fileID: 11400000, guid: 698f1420945dfe005b7fc8ef3fb4dc74, type: 2}
