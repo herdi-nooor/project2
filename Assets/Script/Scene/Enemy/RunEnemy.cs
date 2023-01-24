@@ -7,7 +7,7 @@ using Random = UnityEngine.Random;
 
 namespace LightFight.Enemy
 {
-    public class WalkEnemy : BaseEnemy, IDamageable
+    public class RunEnemy : BaseEnemy, IDamageable
     {
         public int CurrentHp { get; set; }
         public int MaxHp { get; private set; }
