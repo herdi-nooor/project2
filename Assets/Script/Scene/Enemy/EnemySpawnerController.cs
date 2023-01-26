@@ -17,37 +17,28 @@ namespace LightFight.Enemy
         
         private void Update()
         {
-            //StartCoroutine("Spawn");
-            for (int i = 0; i < 10000; i++)
-            {
-                if (i == 9999)
-                {
-                    Spawner();
-                    
-                    Debug.Log(i);
-                }
-                i = Random.Range(0, 5);
-            }
+            StartCoroutine("Spawn");
         }
 
-        // private IEnumerator Spawn()
-        // {
-        //     enemy = EnemySpawner.SharedInstance.GetPooledObject("Enemy");
-        //     Debug.Log($"enemy : {enemy}\npoint spawn : {Spawnpointcurrent}");
-        //     yield return new WaitForSeconds(5.0f);
-        //     Spawner();
-        // }
-
-        private void Spawner()
+        private IEnumerator Spawn()
         {
-                Debug.Log(Spawnpointcurrent);
-            if (enemy != null && Spawnpointcurrent != i)
+            yield return new WaitForSeconds(3.0f);
+            var j = Random.Range(1, EnemySpawner.SharedInstance.GetTotalObjectPolled());
+            enemy = EnemySpawner.SharedInstance.GetPooledObject("Enemy", j);
+            Spawnpointcurrent = Random.Range(0, 7);
+            if (enemy != null && !enemy.activeInHierarchy)
             {
-                Spawnpointcurrent = i;
-                enemy.transform.position = spawnPoin[Spawnpointcurrent].transform.position;
-                enemy.transform.rotation = spawnPoin[Spawnpointcurrent].transform.rotation;
-                enemy.SetActive(true);
+                if (Spawnpointcurrent != i)
+                {
+                    Spawnpointcurrent = i;
+                    Debug.Log($"enemy : {enemy.name}\npoint spawn : {Spawnpointcurrent}/{i}," +
+                              $" spawnt point object : {spawnPoin[Spawnpointcurrent]}\ntranform : {spawnPoin[Spawnpointcurrent].transform.position}");
+                    enemy.transform.position = spawnPoin[Spawnpointcurrent].transform.position;
+                    enemy.transform.rotation = spawnPoin[Spawnpointcurrent].transform.rotation;
+                    enemy.SetActive(true);
+                }
             }
         }
+
     }
 }

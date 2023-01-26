@@ -16,24 +16,34 @@ namespace LightFight.Enemy
         
         private void Start() {
             pooledObjects = new List<GameObject>();
+            int j = 0;
             foreach (ObjectPoolItem item in ItemToPool)
             {
                 for (int i = 0; i < item.amountToPool; i++)
                 {
+                    j += 1;
                     GameObject obj = (GameObject)Instantiate(item.objectToPool);
                     obj.SetActive(false);
+                    obj.name = obj.name + " " +j.ToString();
                     pooledObjects.Add(obj);
                 }
             }
         }
 
-        public GameObject GetPooledObject(string tag){
-            foreach (var pObject in pooledObjects)
+        public int GetTotalObjectPolled()
+        {
+            return pooledObjects.Count;
+        }
+
+        public GameObject GetPooledObject(string tag, int i)
+        {
+            var pObject = pooledObjects[i - 1];
+            if ((!pObject.activeInHierarchy)
+                && (pObject.name.Split(' ')[1] == i.ToString())
+                && (pObject.CompareTag(tag)))
             {
-                if (!pObject.activeInHierarchy && pObject.CompareTag(tag))
-                {
-                    return pObject;
-                }
+                Debug.Log($"{pObject.name}\nindex obj {i}");
+                return pObject;
             }
             return null;
         }

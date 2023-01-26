@@ -12,10 +12,4 @@ namespace LightFight.Enemy
         public TypeEnemy TypeEnemy;
         public int MaxHp = 1;
     }
-
-    public enum TypeEnemy
-    {
-        WALK, RUN, JUMP, FLY
-    }
-    
 }
