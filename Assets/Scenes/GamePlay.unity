@@ -889,44 +889,6 @@ Transform:
   m_Father: {fileID: 532802058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &432735510 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4091099810568429481, guid: 63dcedee82bd4bfd3960f4ba327e85dc, type: 3}
-  m_PrefabInstance: {fileID: 4091099811070079847}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &432735515
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432735510}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.0001
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!114 &432735516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 432735510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e0d54fc1b87dc9a5a3e1cdf6acaf056, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &459905176
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,9 +2130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ItemToPool:
   - objectToPool: {fileID: 2230453796120144919, guid: 38670052b6f21559ba7dd367e8b6149a, type: 3}
-    amountToPool: 3
+    amountToPool: 6
   - objectToPool: {fileID: 5092356136915785, guid: edb7ebefe074b6fe2bd81ea2f74b1e2a, type: 3}
-    amountToPool: 4
+    amountToPool: 9
   pooledObjects: []
 --- !u!1 &1267865566
 GameObject:
