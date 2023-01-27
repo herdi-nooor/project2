@@ -11,18 +11,23 @@ namespace LightFight.Enemy
         public List<GameObject> spawnPoin;
         public GameObject enemy;
         private int Spawnpointcurrent, i;
+        private float timer;
         private void Start()
         {
         }
         
         private void Update()
         {
-            StartCoroutine("Spawn");
+            timer -= Time.deltaTime;
+            if (timer < 0)
+            {
+                Spawn();
+                timer = 2f;
+            }
         }
 
-        private IEnumerator Spawn()
+        private void Spawn()
         {
-            yield return new WaitForSeconds(3.0f);
             var j = Random.Range(1, EnemySpawner.SharedInstance.GetTotalObjectPolled());
             enemy = EnemySpawner.SharedInstance.GetPooledObject("Enemy", j);
             Spawnpointcurrent = Random.Range(0, 7);
@@ -30,15 +35,15 @@ namespace LightFight.Enemy
             {
                 if (Spawnpointcurrent != i)
                 {
-                    Spawnpointcurrent = i;
-                    Debug.Log($"enemy : {enemy.name}\npoint spawn : {Spawnpointcurrent}/{i}," +
-                              $" spawnt point object : {spawnPoin[Spawnpointcurrent]}\ntranform : {spawnPoin[Spawnpointcurrent].transform.position}");
                     enemy.transform.position = spawnPoin[Spawnpointcurrent].transform.position;
                     enemy.transform.rotation = spawnPoin[Spawnpointcurrent].transform.rotation;
                     enemy.SetActive(true);
+                    i = Spawnpointcurrent;
+                    // Debug.Log($"enemy : {enemy.name}\npoint spawn : {Spawnpointcurrent}/{i}," +
+                    //           $"\nspawnt point object : {spawnPoin[Spawnpointcurrent]}" +
+                    //           $"\ntranform : {spawnPoin[Spawnpointcurrent].transform.position}");
                 }
             }
         }
-
     }
 }

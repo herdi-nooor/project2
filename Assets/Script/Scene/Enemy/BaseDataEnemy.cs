@@ -10,6 +10,6 @@ namespace LightFight.Enemy
         public float MoveSpeed;
         public bool FacingRight = false;
         public TypeEnemy TypeEnemy;
-        public int MaxHp = 1;
+        public int MaxHp = 0;
     }
 }

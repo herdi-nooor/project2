@@ -37,7 +37,7 @@ namespace LightFight.Enemy
             }
             
             _rg = GetComponent<Rigidbody2D>();
-            MaxHp = base.DataEnemy.MaxHp;
+            MaxHp = DataEnemy.MaxHp;
         }
         private void Start()
         {
@@ -46,7 +46,11 @@ namespace LightFight.Enemy
 
         private void Update()
         {
-            if (CurrentHp < 1) Debug.Log("enemy die");
+            if (CurrentHp < 1)
+            {
+                gameObject.SetActive(false);
+                Debug.Log("enemy die");
+            }
             OnEdge();
             int r = Random.Range(0, 150) ;
             if (r == 3 && onFlip == false)
@@ -63,6 +67,12 @@ namespace LightFight.Enemy
         {
             HitEnemyMessage hit = (HitEnemyMessage)data;
             CurrentHp -= hit.Damage;
+            if (CurrentHp <= 0)
+            {
+                hit.Enemy.gameObject.SetActive(false);
+                Debug.Log($"{hit.Enemy.gameObject.name} die, hp {CurrentHp}");
+                CurrentHp = MaxHp;
+            }
         }
         
     }

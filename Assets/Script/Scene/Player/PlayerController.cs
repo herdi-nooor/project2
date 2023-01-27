@@ -1,8 +1,8 @@
-using UnityEngine;
 using LightFight.Global;
 using LightFight.Message;
+using UnityEngine;
 
-namespace LightFight.Player
+namespace Script.Scene.Player
 {
     public class PlayerController : MonoBehaviour
 
@@ -54,7 +54,8 @@ namespace LightFight.Player
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            EventManager.TriggerEvent("HitEnemy", new HitEnemyMessage(2));
+            Debug.Log(other.name);
+            EventManager.TriggerEvent("HitEnemy", new HitEnemyMessage(1, other.gameObject));
         }
         
         private void Flip()

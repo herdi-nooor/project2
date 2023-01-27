@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace LightFight.Player
+namespace Script.Scene.Player
 {
     public class GroundedCheck : MonoBehaviour
     {
