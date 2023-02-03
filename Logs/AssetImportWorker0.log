@@ -360,3 +360,73 @@ Received Import Request.
   path: Assets/Script/Scene/Global
   artifactKey: Guid(ebec4ef858c8fbd49af59fc2a3488278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Script/Scene/Global using Guid(ebec4ef858c8fbd49af59fc2a3488278) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e6806dbb12db9e59e39b389bde719d03') in 0,002165 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1212,700995 seconds.
+  path: Assets/Script/Scene/Global/DebugOnPLay.cs
+  artifactKey: Guid(4c0ce20fb2d34db1496e63fc318628e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/Scene/Global/DebugOnPLay.cs using Guid(4c0ce20fb2d34db1496e63fc318628e4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1384faf638ee6aebf031775866733afd') in 0,003208 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 654,826713 seconds.
+  path: Assets/Script/Scene/GamePlay/Envirotment
+  artifactKey: Guid(84c222be2a389e80ca78639019059c9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/Scene/GamePlay/Envirotment using Guid(84c222be2a389e80ca78639019059c9e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8fb7b0633465c8aeaf8cb68e707e04e0') in 0,002357 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0,008917 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2,13 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  4,896 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4897ms)
+		BeginReloadAssembly (356ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (25ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (122ms)
+		EndReloadAssembly (4294ms)
+			LoadAssemblies (301ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1537ms)
+			ReleaseScriptCaches (5ms)
+			RebuildScriptCaches (261ms)
+			SetupLoadedEditorAssemblies (1614ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (19ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (2ms)
+				BeforeProcessingInitializeOnLoad (315ms)
+				ProcessInitializeOnLoadAttributes (1196ms)
+				ProcessInitializeOnLoadMethodAttributes (60ms)
+				AfterProcessingInitializeOnLoad (20ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (35ms)
+Platform modules already initialized, skipping
+Switching build target platform(24) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 2,14 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0,00 ms.
+Unloading 3769 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 148,5 MB.
+System memory in use after: 148,6 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 4332.
+Total: 19,056293 ms (FindLiveObjects: 1,045517 ms CreateObjectMapping: 0,625063 ms MarkObjects: 17,180080 ms  DeleteObjects: 0,202136 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Script.Scene.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IDataPersistence
 
     { 
         [HideInInspector] public bool IsGrounded, FallTrough;
@@ -13,6 +13,8 @@ namespace Script.Scene.Player
         private Vector2 _moveDirect;
         private bool _facingRight = true, _isJump;
         private Rigidbody2D rg;
+
+        private int point = 0;
 
         private void Awake() {
             _moveSpeed = DataCharater.Speed;
@@ -23,7 +25,16 @@ namespace Script.Scene.Player
         {
             rg = GetComponent<Rigidbody2D>();
             _moveDirect.x = 1f;
+        }
 
+        public void LoadData(GameData data)
+        {
+            this.point = data.point;
+        }
+
+        public void SaveData(ref GameData data)
+        {
+            data.point = this.point;
         }
 
         private void FixedUpdate()
@@ -56,6 +67,7 @@ namespace Script.Scene.Player
         private void OnTriggerEnter2D(Collider2D other) {
             Debug.Log(other.name);
             EventManager.TriggerEvent("HitEnemy", new HitEnemyMessage(1, other.gameObject));
+            point += 2;
         }
         
         private void Flip()
