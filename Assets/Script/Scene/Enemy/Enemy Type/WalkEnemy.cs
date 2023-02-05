@@ -49,7 +49,6 @@ namespace LightFight.Enemy
             if (CurrentHp < 1)
             {
                 gameObject.SetActive(false);
-                Debug.Log("enemy die");
             }
             OnEdge();
             int r = Random.Range(0, 150) ;
@@ -70,7 +69,6 @@ namespace LightFight.Enemy
             if (CurrentHp <= 0)
             {
                 hit.Enemy.gameObject.SetActive(false);
-                Debug.Log($"{hit.Enemy.gameObject.name} die, hp {CurrentHp}");
                 CurrentHp = MaxHp;
             }
         }

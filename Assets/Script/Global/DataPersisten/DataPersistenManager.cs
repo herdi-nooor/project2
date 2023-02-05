@@ -6,7 +6,7 @@ namespace LightFight.Global
 {
     public class DataPersistenManager : MonoBehaviour
     {
-        private static DataPersistenManager instance { get; private set; }
+        private static DataPersistenManager instance { get; set; }
         private GameData _gameData;
 
         private void Awake()
@@ -24,16 +24,16 @@ namespace LightFight.Global
             LoadGame();
         }
 
-        public void Newgame()
+        public void NewGame()
         {
-            this.gameData = new GameData();
+            this._gameData = new GameData();
         }
 
         public void LoadGame()
         {
             // Todo - load any save data from a file using the data handler
             // if no data can be laoded, interface to a new game
-            if (this.gameData == null)
+            if (this._gameData == null)
             {
                 Debug.Log("no data was found. Initiating data to defaults");
                 NewGame();

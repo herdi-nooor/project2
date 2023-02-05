@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 115ee03c07f9e41e1a279317caa3d1f7, type: 3}
   m_Name: Characterdata
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 1
   JumpForce: 10
   Healt: 100
   weapon: flash light

@@ -65,7 +65,6 @@ namespace LightFight.Enemy
             if (CurrentHp <= 0)
             {
                 hit.Enemy.gameObject.SetActive(false);
-                Debug.Log($"{hit.Enemy.gameObject.name} die, hp {CurrentHp}");
                 CurrentHp = MaxHp;
             }
         }

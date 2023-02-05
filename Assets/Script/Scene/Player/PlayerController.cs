@@ -11,8 +11,10 @@ namespace Script.Scene.Player
         public DataCharacter DataCharater;
         private float _moveSpeed = 3f, _jumpForce = 5f;
         private Vector2 _moveDirect;
-        private bool _facingRight = true, _isJump;
+        private Vector3 _lastPosition;
+        private bool _facingRight = true, _isJump, isRun = true;
         private Rigidbody2D rg;
+        private Animator anim;
 
         private void Awake() {
             _moveSpeed = DataCharater.Speed;
@@ -23,7 +25,7 @@ namespace Script.Scene.Player
         {
             rg = GetComponent<Rigidbody2D>();
             _moveDirect.x = 1f;
-
+            anim = GameObject.Find("Player/GFX").GetComponent<Animator>();
         }
 
         private void FixedUpdate()
@@ -32,6 +34,12 @@ namespace Script.Scene.Player
             CheckPlayerFacing();
             DebugOnPLay.instance.Fall = FallTrough;
         }
+
+        private void Update()
+        {
+            UpdateAnimaions();
+        }
+        
 
         private void CheckPlayerFacing()
         {
@@ -51,6 +59,22 @@ namespace Script.Scene.Player
                 Flip();
             }
 
+        }
+
+        private void UpdateAnimaions()
+        {
+            Debug.Log(rg.velocity);
+            if (transform.position != _lastPosition)
+            {
+                isRun = true;
+            }
+            else
+            {
+                isRun = false;
+            }
+
+            _lastPosition = transform.position;
+            anim.SetBool("inRun", isRun);
         }
 
         private void OnTriggerEnter2D(Collider2D other) {

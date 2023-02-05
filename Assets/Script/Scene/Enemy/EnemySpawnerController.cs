@@ -39,9 +39,6 @@ namespace LightFight.Enemy
                     enemy.transform.rotation = spawnPoin[Spawnpointcurrent].transform.rotation;
                     enemy.SetActive(true);
                     i = Spawnpointcurrent;
-                    // Debug.Log($"enemy : {enemy.name}\npoint spawn : {Spawnpointcurrent}/{i}," +
-                    //           $"\nspawnt point object : {spawnPoin[Spawnpointcurrent]}" +
-                    //           $"\ntranform : {spawnPoin[Spawnpointcurrent].transform.position}");
                 }
             }
         }
