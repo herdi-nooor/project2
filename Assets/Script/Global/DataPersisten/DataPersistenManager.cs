@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace LightFight.Global
 {
     public class DataPersistenManager : MonoBehaviour
     {
-        private static DataPersistenManager instance { get; set; }
+        [Header("File Strorage Config")]
+        [SerializeField] private string filename;
+        
         private GameData _gameData;
+        private List<IDataPersistence> dataPersistenceObjects;
+        private FileDataHandler _dataHandler;
 
+        private static DataPersistenManager instance { get; set; }
         private void Awake()
         {
             if (instance != null)
@@ -21,7 +27,16 @@ namespace LightFight.Global
 
         public void Start()
         {
+            this._dataHandler = new FileDataHandler(Application.persistentDataPath, filename);
+            this.dataPersistenceObjects = FindAllDataPersistenceObject();
             LoadGame();
+        }
+
+        private List<IDataPersistence> FindAllDataPersistenceObject()
+        {
+            IEnumerable<IDataPersistence> dataPersistencesObjects =
+                FindObjectsOfType<MonoBehaviour>().OfType<IDataPersistence>();
+            return new List<IDataPersistence>(dataPersistencesObjects);
         }
 
         public void NewGame()
@@ -31,20 +46,33 @@ namespace LightFight.Global
 
         public void LoadGame()
         {
-            // Todo - load any save data from a file using the data handler
+            // load any save data from a file using the data handler
+            this._gameData = _dataHandler.Load();
+            
             // if no data can be laoded, interface to a new game
             if (this._gameData == null)
             {
                 Debug.Log("no data was found. Initiating data to defaults");
                 NewGame();
             }
-            //Todo - push the loaded data to all other scripts that need it
+            //push the loaded data to all other scripts that need it
+            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+            {
+                dataPersistenceObj.LoadData(_gameData);
+            }
+            
         }
 
         public void SaveGame()
         {
-            // Todo - pass the data to other scripts so they can update it
-            // Todo - save that data to a file using the data handler
+            //pass the data to other scripts so they can update it
+            foreach (IDataPersistence dataPersistenceObj in dataPersistenceObjects)
+            {
+                dataPersistenceObj.SaveData(ref _gameData);
+            }
+            
+            //save that data to a file using the data handler
+            _dataHandler.Save(_gameData);
         }
 
         private void OnApplicationQuit()
