@@ -17,12 +17,16 @@ namespace LightFight.Global
         private static DataPersistenManager instance { get; set; }
         private void Awake()
         {
-            if (instance != null)
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
             {
                 Debug.LogError("found more then one data persisten manager in the scane.");
+                Destroy(gameObject);
             }
-
-            instance = this;
         }
 
         public void Start()

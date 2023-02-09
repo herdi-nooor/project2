@@ -13,9 +13,7 @@ namespace LightFight.Global
         private Dictionary<string, UnityEvent> eventDictionary;
         private Dictionary<string, TypedEvent> typedEventDictionary;
         
-        public static EventManager eventInstance;
-
-        private static EventManager eventManager;
+        public static EventManager eventManager;
 
         public static EventManager instance
         {
@@ -41,9 +39,9 @@ namespace LightFight.Global
 
         private void Awake()
         {
-            if (eventInstance == null)
+            if (eventManager == null)
             {
-                eventInstance = this;
+                eventManager = this;
                 DontDestroyOnLoad(gameObject);
             }
             else
