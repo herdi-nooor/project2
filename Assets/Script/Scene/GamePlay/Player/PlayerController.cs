@@ -63,7 +63,6 @@ namespace Script.Scene.Player
 
         private void UpdateAnimaions()
         {
-            Debug.Log(rg.velocity);
             if (transform.position != _lastPosition)
             {
                 isRun = true;
@@ -78,7 +77,6 @@ namespace Script.Scene.Player
         }
 
         private void OnTriggerEnter2D(Collider2D other) {
-            Debug.Log(other.name);
             EventManager.TriggerEvent("HitEnemy", new HitEnemyMessage(1, other.gameObject));
         }
         
