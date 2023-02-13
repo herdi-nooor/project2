@@ -24,7 +24,7 @@ namespace LightFight.Global
             }
             else
             {
-                Debug.LogError("found more then one data persisten manager in the scane.");
+                Debug.Log("found more then one data persisten manager in the scane.");
                 Destroy(gameObject);
             }
         }

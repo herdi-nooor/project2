@@ -4,16 +4,17 @@ using UnityEngine.Events;
 
 namespace LightFight.Global
 {
-    [System.Serializable]
+   [System.Serializable]
     public class TypedEvent : UnityEvent<object> { }
-    
     
     public class EventManager : MonoBehaviour
     {
         private Dictionary<string, UnityEvent> eventDictionary;
         private Dictionary<string, TypedEvent> typedEventDictionary;
         
-        public static EventManager eventManager;
+        public static EventManager eventInstance;
+
+        private static EventManager eventManager;
 
         public static EventManager instance
         {
@@ -39,9 +40,9 @@ namespace LightFight.Global
 
         private void Awake()
         {
-            if (eventManager == null)
+            if (eventInstance == null)
             {
-                eventManager = this;
+                eventInstance = this;
                 DontDestroyOnLoad(gameObject);
             }
             else
@@ -122,7 +123,7 @@ namespace LightFight.Global
             }
         }
 
-        // object data disini adalah sebuah data yang berupa Message dengan tipe data struct
+        // object data disini adalah sebuah data yang berupa Message
         public static void TriggerEvent(string eventName, object data)
         {
             TypedEvent thisEvent = null;

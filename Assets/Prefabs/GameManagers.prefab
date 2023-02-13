@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7326373581592562634}
   - component: {fileID: 7916686927575433868}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: GameManagers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -73,3 +73,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b953a2ab89934bd596cce0089826da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  filename: data
