@@ -13,6 +13,7 @@ namespace LightFight.Global
         private GameData _gameData;
         private List<IDataPersistence> dataPersistenceObjects;
         private FileDataHandler _dataHandler;
+        [HideInInspector] public static bool isMenuLoaded = false;
 
         private static DataPersistenManager instance { get; set; }
         private void Awake()
@@ -82,6 +83,7 @@ namespace LightFight.Global
         private void OnApplicationQuit()
         {
             SaveGame();
+            isMenuLoaded = false;
         }
     }
 }
