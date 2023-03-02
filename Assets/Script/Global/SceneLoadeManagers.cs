@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoadeManagers : MonoBehaviour
 {
     private bool isMenuLoaded = false;
+    private string currentScene = "";
     private void Awake()
     {
         isMenuLoaded = DataPersistenManager.isMenuLoaded;
@@ -21,9 +22,12 @@ public class SceneLoadeManagers : MonoBehaviour
         if (activescene.name != "MenuScene" && isMenuLoaded == false)
         {
             Debug.Log($"active scenen {activescene.name}");
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().name);
+	        currentScene = SceneManager.GetActiveScene().name;
+	        Debug.Log($"current scanet {currentScene}");
+	        Load("MenuScene");
             DataPersistenManager.isMenuLoaded = true;
-            Load("MenuScene");
+            UnLoad(currentScene);
+	        Debug.Log(SceneManager.GetActiveScene().name);
             Destroy(gameObject);
         }else if (activescene.name == "MenuScene")
         {
@@ -36,5 +40,10 @@ public class SceneLoadeManagers : MonoBehaviour
     public void Load(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void UnLoad(string sceneName)
+    {
+        SceneManager.UnloadScene(sceneName);
     }
 }

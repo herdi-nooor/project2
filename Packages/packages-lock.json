@@ -80,7 +80,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
-      "version": "1.17.2",
+      "version": "1.17.7",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -185,18 +185,18 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.sysroot": {
-      "version": "2.0.4",
+      "version": "2.0.5",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.sysroot.linux-x86_64": {
-      "version": "2.0.3",
+      "version": "2.0.4",
       "depth": 1,
       "source": "registry",
       "dependencies": {
-        "com.unity.sysroot": "2.0.4"
+        "com.unity.sysroot": "2.0.5"
       },
       "url": "https://packages.unity.com"
     },
@@ -233,12 +233,12 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.toolchain.linux-x86_64": {
-      "version": "2.0.3",
+      "version": "2.0.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.sysroot": "2.0.4",
-        "com.unity.sysroot.linux-x86_64": "2.0.3"
+        "com.unity.sysroot": "2.0.5",
+        "com.unity.sysroot.linux-x86_64": "2.0.4"
       },
       "url": "https://packages.unity.com"
     },
