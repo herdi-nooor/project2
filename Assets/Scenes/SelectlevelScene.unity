@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 260078911}
   - component: {fileID: 260078910}
   - component: {fileID: 260078909}
+  - component: {fileID: 260078913}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -218,13 +219,25 @@ RectTransform:
   - {fileID: 385775234}
   - {fileID: 1102741182}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &260078913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 260078908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0454f2d40e190759d400041244fce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &385775233
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,9 +519,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 892728164}
-        m_TargetAssemblyTypeName: SceneLoadeManagers, Assembly-CSharp
-        m_MethodName: Loads
+      - m_Target: {fileID: 260078913}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: ChangeSceneButton
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -699,7 +712,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 467030240662624386, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 467030240662624386, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
       propertyPath: m_LocalPosition.x
@@ -741,23 +754,47 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 759282144031749492, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1344146749924092657, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
       propertyPath: m_Name
       value: SceneLoaderManeger
       objectReference: {fileID: 0}
+    - target: {fileID: 1344146749924092657, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460027390786525934, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
---- !u!114 &892728164 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1006508403880149929, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
+--- !u!1 &892728165 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8460027390786525934, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
   m_PrefabInstance: {fileID: 892728163}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+--- !u!1 &892728166 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1344146749924092657, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
+  m_PrefabInstance: {fileID: 892728163}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &892728167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892728166}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1136da5ae4de38a579eb6cd5273a04ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loaderCanvas: {fileID: 892728165}
 --- !u!1 &908076785
 GameObject:
   m_ObjectHideFlags: 0
@@ -975,9 +1012,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 892728164}
-        m_TargetAssemblyTypeName: SceneLoadeManagers, Assembly-CSharp
-        m_MethodName: Loads
+      - m_Target: {fileID: 260078913}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: ChangeSceneButton
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1164,7 +1201,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1692305107
 GameObject:
@@ -1649,7 +1686,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2037329084
 MonoBehaviour:

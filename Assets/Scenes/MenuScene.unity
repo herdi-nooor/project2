@@ -389,17 +389,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
---- !u!114 &442089353 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1006508403880149929, guid: 018a890bd5fc6b7e98b06a8e5874ca06, type: 3}
-  m_PrefabInstance: {fileID: 442089352}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1136da5ae4de38a579eb6cd5273a04ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &989670424
 GameObject:
   m_ObjectHideFlags: 0
@@ -561,6 +550,7 @@ GameObject:
   - component: {fileID: 1284577335}
   - component: {fileID: 1284577334}
   - component: {fileID: 1284577333}
+  - component: {fileID: 1284577337}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -650,6 +640,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1284577337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1284577332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0454f2d40e190759d400041244fce4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1424001570
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,9 +735,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 442089353}
-        m_TargetAssemblyTypeName: SceneLoadeManagers, Assembly-CSharp
-        m_MethodName: Loads
+      - m_Target: {fileID: 1284577337}
+        m_TargetAssemblyTypeName: ChangeScene, Assembly-CSharp
+        m_MethodName: ChangeSceneButton
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

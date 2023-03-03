@@ -1,43 +1,71 @@
+using System.Threading.Tasks;
 using Script.Global.DataPersisten;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoadeManagers : MonoBehaviour
+namespace Script.Global
 {
-    private bool isMenuLoaded = false;
-    private string currentScene = "";
-    
-    private void Awake()
+    public class SceneLoadeManagers : MonoBehaviour
     {
-        isMenuLoaded = DataPersistenManager.isMenuLoaded;
-        Debug.Log($"{isMenuLoaded} {DataPersistenManager.isMenuLoaded}");
-        currentScene = SceneManager.GetActiveScene().name;
-        CheckActiveScene();
-    }
+        // ReSharper disable once MemberCanBePrivate.Global
+        public static SceneLoadeManagers Instance;
+        [SerializeField] private GameObject loaderCanvas;
 
-    private void CheckActiveScene()
-    {
-        UnityEngine.SceneManagement.Scene activescene = SceneManager.GetActiveScene();
-        if (activescene.name != "MenuScene" && isMenuLoaded == false)
+        private bool isMenuLoaded ;
+        private string currentScene ;
+        
+        public void Awake()
         {
-            Debug.Log($"active scenen {activescene.name}");
-            Loads("MenuScene");
-            DataPersistenManager.isMenuLoaded = true;
-            Debug.Log(SceneManager.GetActiveScene().name);
-        }else if (activescene.name == "MenuScene")
-        {
-            Debug.Log($"active scenen {activescene.name}");
-            isMenuLoaded = true;
-            return;
+            if (Instance == null)
+            {
+                Instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+            Inits();
         }
-    }
+    
+        private void Inits()
+        {
+            isMenuLoaded = DataPersistenManager.isMenuLoaded;
+            Debug.Log($"{isMenuLoaded} {DataPersistenManager.isMenuLoaded}");
+            currentScene = SceneManager.GetActiveScene().name;
+            CheckActiveScene();
+        }
 
-    public void Loads(string NewScene)
-    {
-        SceneManager.LoadScene(NewScene, LoadSceneMode.Single);
-        Debug.LogError(GameObject.Find(NewScene));
-        SceneManager.UnloadScene(currentScene);
-    }
+        private void CheckActiveScene()
+        {
+            if (currentScene != "MenuScene" && isMenuLoaded == false)
+            {
+                Loads("MenuScene");
+                DataPersistenManager.isMenuLoaded = true;
+                Debug.Log(SceneManager.GetActiveScene().name);
+            }else if (currentScene == "MenuScene")
+            {
+                isMenuLoaded = true;
+            }
+        }
 
+        public async void Loads(string newScene)
+        {
+            var scene = SceneManager.LoadSceneAsync(newScene);
+            scene.allowSceneActivation = false;
+
+            loaderCanvas.SetActive(true);
+            do
+            {
+                await Task.Delay(1000);
+
+            } while (scene.progress < 0.9f);
+
+            scene.allowSceneActivation = true;
+            await Task.Delay(100);
+            loaderCanvas.SetActive(false);
+        }
+
+    }
 }
 
