@@ -1,8 +1,9 @@
 using System;
 using System.IO;
+using Script.Global.DataPersisten.Data;
 using UnityEngine;
 
-namespace LightFight.Global
+namespace Script.Global.DataPersisten
 {
     public class FileDataHandler
     {

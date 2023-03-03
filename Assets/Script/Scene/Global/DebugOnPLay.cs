@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace LightFight.Global
+namespace Script.Scene.Global
 {
     public class DebugOnPLay : MonoBehaviour
     {

@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Script.Global.DataPersisten.Data;
 
-namespace LightFight.Global
+namespace Script.Global.DataPersisten
 {
     public interface IDataPersistence
     {

@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Script.Scene.Player;
+using Script.Scene.GamePlay.Player;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
-namespace LightFight.Envirotment
+namespace Script.Scene.GamePlay.Envirotment
 {
     public class OneWayPlatform : MonoBehaviour
     {

@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using Script.Scene.GamePlay.Enemy.Enemy_Type;
 using UnityEngine;
 
-namespace LightFight.Enemy
+namespace Script.Scene.GamePlay.Enemy
 {
     [CreateAssetMenu(fileName = "Enemydata", menuName = "Enemy/Data", order = 0)]
     public class BaseDataEnemy : ScriptableObject

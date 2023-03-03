@@ -1,11 +1,11 @@
-using System;
-using LightFight.Global;
-using LightFight.Message;
+using Script.Global;
+using Script.Message;
+using Script.Scene.Global;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 
-namespace LightFight.Enemy
+namespace Script.Scene.GamePlay.Enemy.Enemy_Type
 {
     public class RunEnemy : BaseEnemy, IDamageable
     {

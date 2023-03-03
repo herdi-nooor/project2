@@ -1,10 +1,10 @@
-using LightFight.Global;
+using Script.Scene.Global;
 using UnityEngine;
 using Inputs = UnityEngine.Input;
 using TouchPhases = UnityEngine.TouchPhase;
 using Touchs = UnityEngine.Touch;
 
-namespace Script.Scene.Player.Input
+namespace Script.Scene.GamePlay.Player.Input
 {
     public class PlayerInputHandler : MonoBehaviour
     {

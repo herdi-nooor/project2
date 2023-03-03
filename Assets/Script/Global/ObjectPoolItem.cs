@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LightFight.Enemy
+namespace Script.Global
 {   
     [System.SerializableAttribute]
     public class ObjectPoolItem

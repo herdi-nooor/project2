@@ -1,9 +1,9 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Script.Global.DataPersisten.Data;
 using UnityEngine;
 
-namespace LightFight.Global
+namespace Script.Global.DataPersisten
 {
     public class DataPersistenManager : MonoBehaviour
     {

@@ -1,8 +1,9 @@
-using LightFight.Global;
-using LightFight.Message;
+using Script.Global;
+using Script.Message;
+using Script.Scene.Global;
 using UnityEngine;
 
-namespace Script.Scene.Player
+namespace Script.Scene.GamePlay.Player
 {
     public class PlayerController : MonoBehaviour
 

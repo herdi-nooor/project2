@@ -1,10 +1,8 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace LightFight.Enemy
+namespace Script.Scene.GamePlay.Enemy
 {
     public class EnemySpawnerController : MonoBehaviour
     {

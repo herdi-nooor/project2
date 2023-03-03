@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LightFight.Message
+namespace Script.Message
 {
     public struct HitEnemyMessage
     {

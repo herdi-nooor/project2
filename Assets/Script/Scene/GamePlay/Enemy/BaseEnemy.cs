@@ -1,8 +1,8 @@
 using System.Collections;
-using System.Collections.Generic;
+using Script.Scene.GamePlay.Enemy.Enemy_Type;
 using UnityEngine;
 
-namespace LightFight.Enemy
+namespace Script.Scene.GamePlay.Enemy
 {
     public abstract class BaseEnemy : MonoBehaviour
     {

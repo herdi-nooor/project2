@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace LightFight.Global
+namespace Script.Global
 {
     [CreateAssetMenu(fileName = "Characterdata", menuName = "Character/Data", order = 0)]
     public class DataCharacter : ScriptableObject

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace LightFight.Global
+namespace Script.Scene.Global
 {
    [System.Serializable]
     public class TypedEvent : UnityEvent<object> { }

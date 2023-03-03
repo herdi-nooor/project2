@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Script.Scene.Player
+namespace Script.Scene.GamePlay.Player
 {
     public class GroundedCheck : MonoBehaviour
     {

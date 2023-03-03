@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace LightFight.Global
+namespace Script.Global.DataPersisten.Data
 {
     [System.Serializable]
     public class GameData

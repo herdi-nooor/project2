@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace LightFight.Global
+namespace Script.Global
 {
     public interface IDamageable
     {

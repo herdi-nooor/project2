@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using Script.Global;
 using UnityEngine;
 
-namespace LightFight.Enemy
+namespace Script.Scene.GamePlay.Enemy
 {
     public class EnemySpawner : MonoBehaviour
     
