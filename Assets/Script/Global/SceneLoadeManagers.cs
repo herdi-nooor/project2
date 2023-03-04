@@ -16,6 +16,7 @@ namespace Script.Global
         
         public void Awake()
         {
+            Inits();
             if (Instance == null)
             {
                 Instance = this;
@@ -25,7 +26,6 @@ namespace Script.Global
             {
                 Destroy(gameObject);
             }
-            Inits();
         }
     
         private void Inits()
@@ -58,11 +58,10 @@ namespace Script.Global
             do
             {
                 await Task.Delay(1000);
-
             } while (scene.progress < 0.9f);
 
             scene.allowSceneActivation = true;
-            await Task.Delay(100);
+            await Task.Delay(10);
             loaderCanvas.SetActive(false);
         }
 
