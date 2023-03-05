@@ -57,7 +57,7 @@ namespace Script.Global
             loaderCanvas.SetActive(true);
             do
             {
-                await Task.Delay(1000);
+                await Task.Delay(990);
             } while (scene.progress < 0.9f);
 
             scene.allowSceneActivation = true;
